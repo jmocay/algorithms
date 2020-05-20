@@ -8,7 +8,6 @@ def binary_search(arr, val):
 
     while lo <= hi:
         mid = (lo + hi) // 2
-        print(lo, mid, hi)
         if arr[mid] == val:
             return mid
         elif val < arr[mid]:
