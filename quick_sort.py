@@ -8,6 +8,11 @@ def quicksort_helper(arr, lo, hi):
     quicksort_helper(arr, lo, j - 1)
     quicksort_helper(arr, j + 1, hi)
 
+def swap(arr, i, j):
+    tmp = arr[i]
+    arr[i] = arr[j]
+    arr[j] = tmp
+
 """
     Partition the array such that:
         set pivot element to arr[hi]
@@ -20,18 +25,13 @@ def partition(arr, lo, hi):
     j = lo - 1
     i = lo
     while i < hi:
-        if arr[i] >= pivot:
-            pass
-        else:
+        if arr[i] < pivot:
             j += 1
-            tmp = arr[j]
-            arr[j] = arr[i]
-            arr[i] = tmp
+            swap(arr, i, j)
         i += 1
     j += 1
-    tmp = arr[j]
-    arr[j] = arr[hi]
-    arr[hi] = tmp
+    swap(arr, i, j)
+
     return j
 
 from datetime import datetime
