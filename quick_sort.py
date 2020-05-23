@@ -21,6 +21,13 @@ def swap(arr, i, j):
     Return the index of pivot after the partition
 """
 def partition(arr, lo, hi):
+    mid = (lo + hi) // 2
+    if arr[mid] < arr[lo]:
+        swap(arr, lo, mid)
+    if arr[hi] < arr[lo]:
+        swap(arr, lo, hi)
+    if arr[mid] < arr[hi]:
+        swap(arr, mid, hi)
     pivot = arr[hi]
     j = lo - 1
     i = lo
