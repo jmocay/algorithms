@@ -46,6 +46,7 @@ from datetime import datetime
 from random import seed, randint
 
 if __name__ == '__main__':
+    seed(datetime.now())
     n = 100
     arr = [randint(1, 100) for i in range(n)]
     print(arr, 'sum: ', sum(arr))
