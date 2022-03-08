@@ -41,16 +41,19 @@ def partition(arr, lo, hi):
 
     return j
 
-from datetime import datetime
-from random import seed, randint
-
 if __name__ == '__main__':
+    from time import time
+    from random import seed, randint
 
-    seed(datetime.now())
+    seed(time())
 
-    n = 100
-    arr = [randint(1, 100) for i in range(n)]
+    n = 50000
+    arr = [randint(1, n) for i in range(n)]
 
-    print(arr, sum(arr))
+    if len(arr) <= 10:
+        print('List before sort: {}'.format(arr))
+    print('Sum of list before sort: {}'.format(sum(arr)))
     quicksort(arr)
-    print(arr, sum(arr))
+    if len(arr) <= 10:
+        print('List after sort: {}'.format(arr))
+    print('Sum of list after sort: {}'.format(sum(arr)))
