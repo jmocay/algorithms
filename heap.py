@@ -1,11 +1,3 @@
-def heap_sort(arr):
-    end = len(arr)-1
-    heapify(arr, 0, end)
-    while end > 0:
-        swap(arr, 0, end)
-        end -= 1
-        sift(arr, 0, end)
-
 def heapify(arr, begin, end):
     root = parent(end)
     while root >= begin:
@@ -42,27 +34,23 @@ def left_child(i):
 def right_child(i):
     return 2*i + 2
 
-def is_sorted(arr, begin, end):
-    for i in range(begin, end):
-        if arr[i] > arr[i+1]:
+def is_heap(arr, begin, end):
+    while end > begin:
+        if arr[end] > arr[parent(end)]:
             return False
-        i += 1
+        end -= 1
     return True
 
-def test_heap_sort():
+def test_heap():
     from time import time
     from random import seed, randint
-    n = 1000
+    n = 10
     seed(time())
     arr = [randint(1, n) for i in range(n)]
-    if len(arr) <= 10:
-        print('Initial list: {}'.format(arr))
-    print('Sum before sort: {}'.format(sum(arr)))
-    heap_sort(arr)
-    if len(arr) <= 10:
-        print('Sorted list: {}'.format(arr))
-    print('Is sorted: {}'.format(is_sorted(arr, 0, len(arr)-1)))
-    print('Sum after sort: {}'.format(sum(arr)))
+    print('Initial list: {}'.format(arr))
+    heapify(arr, 0, len(arr)-1)
+    print('Heapified list: {}'.format(arr))
+    print('Is heap: {}'.format(is_heap(arr, 0, len(arr)-1)))
 
 if __name__ == '__main__':
-    test_heap_sort()
+    test_heap()
