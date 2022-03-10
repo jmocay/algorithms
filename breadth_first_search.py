@@ -13,7 +13,8 @@ def bfs(graph, s, f, visited):
         visited.update({current: None})
         f(current)
         for neigh in graph[current]:
-            q.insert(0, neigh)
+            if not neigh in visited:
+                q.insert(0, neigh)
 
 def build_graph():
     """
