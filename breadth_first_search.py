@@ -1,8 +1,9 @@
 """
   Breadth First Search
-    graph = dict of node to list of adjacent nodes
+    graph = dict of node to list of adjacent vertices
     s = starting node
     f = function to process a node
+    visited = dictionary to track visited vertices
 """
 def bfs(graph, s, f, visited):
     q = [s]
